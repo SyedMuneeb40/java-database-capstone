@@ -21,6 +21,10 @@ public class Appointment {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
+    @Future
+    private LocalDateTime appointmentDate;
+
+
     @NotNull
     private LocalDateTime appointmentDate;
 

@@ -5,6 +5,7 @@ import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @Getter
@@ -24,6 +25,9 @@ public class Doctor {
     private String email;
 
     private String specialty;
+    @ElementCollection
+    private List<LocalTime> availableTimes;
+
 
     @NotBlank
     private String password;
