@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header>
+    Patient Dashboard
+    <a class="logout" th:href="@{/logout}">Logout</a>
+</header>
+
+<h3>Your Appointments</h3>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Doctor Name</th>
+        <th>Appointment Date</th>
+        <th>Status</th>
+    </tr>
+    <tr th:each="appt : ${appointments}">
+        <td th:text="${appt.id}"></td>
+        <td th:text="${appt.doctor.name}"></td>
+        <td th:text="${appt.appointmentDate}"></td>
+        <td th:text="${appt.status}"></td>
+    </tr>
+</table>
+</body>
+</html>

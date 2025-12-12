@@ -1,0 +1,90 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7f9;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+}
+
+header {
+    background: #1e90ff;
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logout {
+    float: right;
+    margin-right: 20px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.logout:hover {
+    color: #ff6347;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #1e90ff;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1c86ee;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: #1e90ff;
+    color: #fff;
+}
+
+tr:hover {
+    background: #f1faff;
+}
