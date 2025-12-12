@@ -6,42 +6,27 @@ import com.smartclinicmanagement.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
-
 @Service
 public class AppointmentService {
 
     @Autowired
     private AppointmentRepository appointmentRepository;
 
-    // Get all appointments
-    public List<Appointment> getAllAppointments() {
-        return appointmentRepository.findAll();
-    }
-
-    // Get appointments for a specific doctor
-    public List<Appointment> getAppointmentsByDoctorId(Long doctorId) {
-        return appointmentRepository.findByDoctorId(doctorId);
-    }
-
-    // Get appointments for a specific patient
-    public List<Appointment> getAppointmentsByPatientId(Long patientId) {
-        return appointmentRepository.findByPatientId(patientId);
-    }
-
-    // Save new appointment
-    public Appointment saveAppointment(Appointment appointment) {
+    public Appointment bookAppointment(Appointment appointment) {
+        if(appointment.getAppointmentDate().isBefore(LocalDate.now().atStartOfDay())) {
+            throw new IllegalArgumentException("Cannot book past date");
+        }
         return appointmentRepository.save(appointment);
     }
 
-    // Find by id
-    public Optional<Appointment> getAppointmentById(Long id) {
-        return appointmentRepository.findById(id);
+    public List<Appointment> getAppointmentsByPatient(Long patientId) {
+        return appointmentRepository.findByPatientId(patientId);
     }
 
-    // Delete appointment
-    public void deleteAppointment(Long id) {
-        appointmentRepository.deleteById(id);
+    public List<Appointment> getAppointmentsByDoctorAndDate(Long doctorId, LocalDate date) {
+        return appointmentRepository.findByDoctorIdAndAppointmentDate(doctorId, date);
     }
 }
